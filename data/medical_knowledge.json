@@ -1,0 +1,152 @@
+{
+  "symptoms": {
+    "headache": {
+      "description": "Pain or discomfort in the head or neck area",
+      "common_causes": ["Tension", "Migraine", "Dehydration", "Stress", "Eye strain", "Sinusitis"],
+      "self_care": ["Rest in a dark room", "Apply cold compress", "Stay hydrated", "Over-the-counter pain relievers", "Gentle neck massage"],
+      "when_to_see_doctor": ["Severe headache", "Headache with fever", "Sudden onset", "Headache after head injury", "Headache with vision changes"],
+      "urgency_level": "moderate"
+    },
+    "fever": {
+      "description": "Elevated body temperature above normal (98.6°F/37°C)",
+      "common_causes": ["Viral infections", "Bacterial infections", "Inflammatory conditions", "Heat exhaustion"],
+      "self_care": ["Rest", "Stay hydrated", "Cool compress", "Over-the-counter fever reducers", "Light clothing"],
+      "when_to_see_doctor": ["Fever above 103°F (39.4°C)", "Fever lasting more than 3 days", "Fever with rash", "Fever with severe headache"],
+      "urgency_level": "moderate"
+    },
+    "cough": {
+      "description": "Reflex action to clear airways of mucus and irritants",
+      "common_causes": ["Common cold", "Flu", "Allergies", "Asthma", "Smoking", "Post-nasal drip"],
+      "self_care": ["Stay hydrated", "Use humidifier", "Honey and warm liquids", "Avoid irritants", "Throat lozenges"],
+      "when_to_see_doctor": ["Persistent cough", "Cough with blood", "Cough with chest pain", "Cough lasting more than 3 weeks"],
+      "urgency_level": "low"
+    },
+    "chest_pain": {
+      "description": "Pain or discomfort in the chest area",
+      "common_causes": ["Heart conditions", "Muscle strain", "Acid reflux", "Anxiety", "Pneumonia"],
+      "self_care": ["Rest", "Avoid strenuous activity", "Monitor symptoms", "Deep breathing exercises"],
+      "when_to_see_doctor": ["Severe chest pain", "Pain radiating to arm/jaw", "Shortness of breath", "Call 911 immediately"],
+      "urgency_level": "emergency"
+    },
+    "abdominal_pain": {
+      "description": "Pain or discomfort in the stomach or belly area",
+      "common_causes": ["Indigestion", "Gas", "Food poisoning", "Appendicitis", "Gallstones", "Menstrual cramps"],
+      "self_care": ["Rest", "Avoid solid foods", "Stay hydrated", "Apply heat", "Over-the-counter antacids"],
+      "when_to_see_doctor": ["Severe pain", "Pain with vomiting", "Pain lasting more than 24 hours", "Pain with fever"],
+      "urgency_level": "moderate"
+    },
+    "dizziness": {
+      "description": "Feeling of lightheadedness or unsteadiness",
+      "common_causes": ["Dehydration", "Low blood pressure", "Inner ear problems", "Anxiety", "Medication side effects"],
+      "self_care": ["Sit or lie down", "Stay hydrated", "Avoid sudden movements", "Deep breathing"],
+      "when_to_see_doctor": ["Frequent dizziness", "Dizziness with chest pain", "Dizziness with vision changes", "Loss of consciousness"],
+      "urgency_level": "moderate"
+    },
+    "nausea": {
+      "description": "Feeling of sickness with inclination to vomit",
+      "common_causes": ["Food poisoning", "Motion sickness", "Pregnancy", "Migraine", "Anxiety", "Medication side effects"],
+      "self_care": ["Small sips of water", "Ginger tea", "Avoid strong smells", "Rest", "Bland foods"],
+      "when_to_see_doctor": ["Persistent nausea", "Nausea with severe pain", "Nausea with fever", "Signs of dehydration"],
+      "urgency_level": "low"
+    },
+    "fatigue": {
+      "description": "Extreme tiredness or lack of energy",
+      "common_causes": ["Sleep deprivation", "Stress", "Anemia", "Depression", "Thyroid problems", "Chronic illness"],
+      "self_care": ["Adequate sleep", "Regular exercise", "Balanced diet", "Stress management", "Stay hydrated"],
+      "when_to_see_doctor": ["Persistent fatigue", "Fatigue with other symptoms", "Fatigue affecting daily life", "Unexplained weight loss"],
+      "urgency_level": "low"
+    }
+  },
+  "conditions": {
+    "common_cold": {
+      "symptoms": ["Runny nose", "Sneezing", "Sore throat", "Cough", "Mild fever", "Congestion"],
+      "duration": "7-10 days",
+      "treatment": ["Rest", "Hydration", "Saline nasal spray", "Over-the-counter medications", "Humidifier"],
+      "prevention": ["Hand washing", "Avoid close contact with sick people", "Boost immune system", "Avoid touching face"]
+    },
+    "influenza": {
+      "symptoms": ["High fever", "Body aches", "Fatigue", "Cough", "Headache", "Chills"],
+      "duration": "1-2 weeks",
+      "treatment": ["Rest", "Hydration", "Antiviral medications", "Symptom relief", "Isolation"],
+      "prevention": ["Annual flu vaccine", "Hand hygiene", "Avoid crowds during flu season", "Cover coughs and sneezes"]
+    },
+    "hypertension": {
+      "symptoms": ["Often asymptomatic", "Headaches", "Shortness of breath", "Nosebleeds", "Dizziness"],
+      "management": ["Low-sodium diet", "Regular exercise", "Weight management", "Medication", "Stress reduction"],
+      "monitoring": ["Regular blood pressure checks", "Lifestyle modifications", "Medical follow-up", "Home monitoring"]
+    },
+    "diabetes": {
+      "symptoms": ["Increased thirst", "Frequent urination", "Fatigue", "Blurred vision", "Slow healing"],
+      "management": ["Blood sugar monitoring", "Healthy diet", "Regular exercise", "Medication", "Regular check-ups"],
+      "complications": ["Heart disease", "Kidney damage", "Nerve damage", "Eye problems", "Foot problems"]
+    },
+    "anxiety": {
+      "symptoms": ["Excessive worry", "Restlessness", "Fatigue", "Difficulty concentrating", "Muscle tension"],
+      "management": ["Therapy", "Medication", "Relaxation techniques", "Regular exercise", "Adequate sleep"],
+      "coping_strategies": ["Deep breathing", "Mindfulness", "Progressive muscle relaxation", "Cognitive behavioral therapy"]
+    },
+    "depression": {
+      "symptoms": ["Persistent sadness", "Loss of interest", "Fatigue", "Sleep problems", "Appetite changes"],
+      "management": ["Therapy", "Medication", "Lifestyle changes", "Social support", "Regular exercise"],
+      "warning_signs": ["Thoughts of self-harm", "Severe hopelessness", "Social isolation", "Substance abuse"]
+    }
+  },
+  "emergency_signs": [
+    "Severe chest pain",
+    "Difficulty breathing",
+    "Loss of consciousness",
+    "Severe bleeding",
+    "Signs of stroke (facial drooping, arm weakness, speech difficulty)",
+    "Severe allergic reaction",
+    "High fever with rash",
+    "Severe abdominal pain",
+    "Head injury with loss of consciousness",
+    "Severe burns",
+    "Poisoning",
+    "Suicidal thoughts"
+  ],
+  "first_aid": {
+    "choking": "Perform Heimlich maneuver or back blows. Call 911 if person becomes unconscious.",
+    "bleeding": "Apply direct pressure with clean cloth, elevate if possible. Call 911 for severe bleeding.",
+    "burns": "Cool with cool water for 10-15 minutes, don't use ice. Cover loosely with clean cloth.",
+    "fainting": "Lay person flat, elevate legs, check breathing. Call 911 if unconscious for more than 1 minute.",
+    "heart_attack": "Call 911 immediately. If person is conscious, have them sit and rest. Give aspirin if available.",
+    "stroke": "Call 911 immediately. Note time of onset. Keep person comfortable and monitor breathing.",
+    "seizure": "Clear area, don't restrain person, place on side after seizure. Call 911 if seizure lasts more than 5 minutes."
+  },
+  "medications": {
+    "pain_relief": {
+      "acetaminophen": "For fever and mild pain. Avoid alcohol. Check liver function.",
+      "ibuprofen": "Anti-inflammatory. Take with food. Avoid if stomach problems.",
+      "aspirin": "Pain relief and blood thinner. Avoid in children with viral infections."
+    },
+    "cold_medications": {
+      "decongestants": "For nasal congestion. Avoid if high blood pressure.",
+      "antihistamines": "For allergies and runny nose. May cause drowsiness.",
+      "cough_suppressants": "For dry cough. Avoid if productive cough."
+    }
+  },
+  "preventive_care": {
+    "vaccinations": [
+      "Annual flu vaccine",
+      "COVID-19 vaccine",
+      "Tetanus booster every 10 years",
+      "Pneumonia vaccine for adults 65+",
+      "Shingles vaccine for adults 50+"
+    ],
+    "screenings": [
+      "Blood pressure check annually",
+      "Cholesterol screening every 4-6 years",
+      "Diabetes screening every 3 years",
+      "Mammogram for women 40+",
+      "Colonoscopy for adults 45+"
+    ],
+    "lifestyle": [
+      "Regular exercise (150 minutes/week)",
+      "Balanced diet",
+      "Adequate sleep (7-9 hours)",
+      "Stress management",
+      "Avoid smoking and excessive alcohol"
+    ]
+  }
+}

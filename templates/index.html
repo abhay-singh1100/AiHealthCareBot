@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthAI - AI Healthcare Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <h1>HealthAI</h1>
+                </div>
+                <div class="subtitle">Your 24/7 AI Healthcare Assistant</div>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-info">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Medical Assistant</span>
+                    <div class="status-indicator online"></div>
+                </div>
+                <div class="chat-controls">
+                    <button id="clearChat" class="btn-secondary" title="Clear Chat">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-text">
+                            👋 Hello! I'm your AI healthcare assistant. I'm here to provide preliminary medical guidance and answer your health-related questions.
+                            <br><br>
+                            <strong>Please note:</strong> This is for informational purposes only and should not replace professional medical advice. For serious symptoms or emergencies, please contact healthcare professionals immediately.
+                            <br><br>
+                            How can I help you today?
+                        </div>
+                        <div class="message-time" id="welcomeTime"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <button class="quick-btn" data-symptom="headache">
+                    <i class="fas fa-head-side-virus"></i>
+                    Headache
+                </button>
+                <button class="quick-btn" data-symptom="fever">
+                    <i class="fas fa-thermometer-half"></i>
+                    Fever
+                </button>
+                <button class="quick-btn" data-symptom="cough">
+                    <i class="fas fa-lungs"></i>
+                    Cough
+                </button>
+                <button class="quick-btn" data-symptom="pain">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Pain
+                </button>
+            </div>
+
+            <!-- Input Area -->
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Describe your symptoms or ask a medical question..."
+                        rows="1"
+                    ></textarea>
+                    <button id="sendButton" class="send-btn" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <span class="disclaimer">
+                        <i class="fas fa-shield-alt"></i>
+                        Your conversations are private and secure
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Notice -->
+        <div class="emergency-notice">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Emergency?</strong> Call 911 or go to the nearest emergency room immediately.
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>AI is thinking...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
