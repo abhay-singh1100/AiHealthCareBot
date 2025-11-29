@@ -103,6 +103,16 @@ class HealthAIChat {
             // Add bot response to chat
             this.addMessage(data.response, 'bot');
             
+            // Handle medication suggestions and recommendations
+            if (data.medications && data.medications.length > 0) {
+                this.displayMedications(data.medications, data.recommendations);
+            }
+            
+            // Handle next question suggestions
+            if (data.next_question) {
+                this.addSuggestionButtons([data.next_question]);
+            }
+            
         } catch (error) {
             console.error('Error sending message:', error);
             this.addMessage('I apologize, but I encountered an error. Please try again or contact support if the problem persists.', 'bot');
@@ -215,6 +225,89 @@ class HealthAIChat {
             // Show confirmation
             this.addMessage('Chat history cleared. How can I help you today?', 'bot');
         }
+    }
+    
+    displayMedications(medications, recommendations) {
+        // Create medication card
+        const medicationCard = document.createElement('div');
+        medicationCard.className = 'medication-card';
+        
+        let html = '<div class="card-header"><i class="fas fa-pills"></i> <strong>Medication Suggestions</strong></div>';
+        
+        if (medications.length > 0) {
+            html += '<div class="medications-list">';
+            medications.forEach(med => {
+                html += `
+                    <div class="medication-item">
+                        <div class="med-name"><i class="fas fa-capsules"></i> ${this.escapeHtml(med.name)}</div>
+                        <div class="med-details">
+                            <span><strong>Dosage:</strong> ${this.escapeHtml(med.dosage)}</span>
+                            <span><strong>Frequency:</strong> ${this.escapeHtml(med.frequency)}</span>
+                        </div>
+                        <div class="med-notes">${this.escapeHtml(med.notes)}</div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+        }
+        
+        if (recommendations && recommendations.length > 0) {
+            html += '<div class="recommendations-list"><strong>Additional Recommendations:</strong><ul>';
+            recommendations.forEach(rec => {
+                html += `<li>${this.escapeHtml(rec)}</li>`;
+            });
+            html += '</ul></div>';
+        }
+        
+        medicationCard.innerHTML = html;
+        this.chatMessages.appendChild(medicationCard);
+        this.scrollToBottom();
+    }
+    
+    addSuggestionButtons(questions) {
+        const suggestionsDiv = document.createElement('div');
+        suggestionsDiv.className = 'suggestion-buttons';
+        
+        questions.forEach(question => {
+            const btn = document.createElement('button');
+            btn.className = 'suggestion-btn';
+            btn.textContent = question;
+            btn.addEventListener('click', () => {
+                this.messageInput.value = this.generateAnswerForQuestion(question);
+                this.updateSendButton();
+                this.sendMessage();
+            });
+            suggestionsDiv.appendChild(btn);
+        });
+        
+        this.chatMessages.appendChild(suggestionsDiv);
+        this.scrollToBottom();
+    }
+    
+    generateAnswerForQuestion(question) {
+        // Generate possible answers based on question type
+        if (question.includes('scale of 1-10')) {
+            return 'The pain is about a 5';
+        } else if (question.includes('How long')) {
+            return 'It started yesterday';
+        } else if (question.includes('trigger')) {
+            return 'No specific triggers that I can identify';
+        } else if (question.includes('tried')) {
+            return 'I have not tried any treatment yet';
+        } else if (question.includes('temperature') || question.includes('fever')) {
+            return 'Around 100°F';
+        } else if (question.includes('other symptoms')) {
+            return 'Just the symptoms I mentioned';
+        }
+        
+        // Default answer
+        return 'I\'m not sure about this yet.';
+    }
+    
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
     // Utility method to check for emergency keywords

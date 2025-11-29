@@ -6,13 +6,22 @@ import os
 from datetime import datetime
 from models.qwen_model import QwenMedicalAssistant
 from models.medical_db import MedicalKnowledgeBase
+from models.conversation_manager import ConversationManager
+from models.free_ai_model import FreeAIModel
 
 app = Flask(__name__)
 CORS(app)
 
-# Initialize AI model and medical knowledge base
-ai_assistant = QwenMedicalAssistant()
+# Initialize AI models - Free AI is lightweight and always available
+print("🤖 Initializing AI Models...")
+free_ai = FreeAIModel()  # Free, lightweight AI for general chat
+ai_assistant = QwenMedicalAssistant()  # Optional, heavier model
+
+# Initialize medical knowledge base
 medical_db = MedicalKnowledgeBase()
+
+# Initialize conversation manager with free AI
+conversation_manager = ConversationManager(ai_model=free_ai)
 
 # Database setup
 def init_db():
@@ -52,17 +61,24 @@ def chat():
         if not user_message:
             return jsonify({'error': 'Message cannot be empty'}), 400
         
-        # Get AI response
-        ai_response = ai_assistant.get_response(user_message)
+        # Use conversation manager for intelligent Q&A
+        conversation_result = conversation_manager.process_message(session_id, user_message)
         
         # Store conversation in database
-        store_conversation(session_id, user_message, ai_response)
+        store_conversation(session_id, user_message, conversation_result.get('response', ''))
         
-        return jsonify({
-            'response': ai_response,
+        # Prepare response with conversation state
+        response_data = {
+            'response': conversation_result.get('response', ''),
             'session_id': session_id,
-            'timestamp': datetime.now().isoformat()
-        })
+            'timestamp': datetime.now().isoformat(),
+            'stage': conversation_result.get('stage', 'general'),
+            'next_question': conversation_result.get('next_question'),
+            'medications': conversation_result.get('medications', []),
+            'recommendations': conversation_result.get('recommendations', [])
+        }
+        
+        return jsonify(response_data)
         
     except Exception as e:
         return jsonify({'error': str(e)}), 500
